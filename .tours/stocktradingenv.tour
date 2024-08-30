@@ -1,0 +1,77 @@
+{
+  "$schema": "https://aka.ms/codetour-schema",
+  "title": "StockTradingEnv",
+  "steps": [
+    {
+      "file": "../../opt/anaconda3/envs/FinRL/lib/python3.10/site-packages/finrl/meta/env_stock_trading/env_stocktrading.py",
+      "description": "How state is represented: n is the stock dim, m is the tech indicator indicator\n1. amount: int\n2. data.close.value: list - n dim\n3. num_stock_shares: list - n dim\n4. tech_insicator: list - n x m \nSo whole statis is 1 + n + n + m*n",
+      "line": 407
+    },
+    {
+      "file": "../../opt/anaconda3/envs/FinRL/lib/python3.10/site-packages/finrl/meta/env_stock_trading/env_stocktrading.py",
+      "description": "here is how new state is derived.",
+      "line": 431
+    },
+    {
+      "file": "../../opt/anaconda3/envs/FinRL/lib/python3.10/site-packages/finrl/meta/env_stock_trading/env_stocktrading.py",
+      "description": "actions supposed to be `np.ndarray` with dimension n and each element is scalled in [0,1]",
+      "line": 303
+    },
+    {
+      "file": "../../opt/anaconda3/envs/FinRL/lib/python3.10/site-packages/finrl/meta/env_stock_trading/env_stocktrading.py",
+      "description": "begin_total_asset = amount:int + close_price:list * held_shares:list",
+      "line": 310
+    },
+    {
+      "file": "../../opt/anaconda3/envs/FinRL/lib/python3.10/site-packages/finrl/meta/env_stock_trading/env_stocktrading.py",
+      "description": "The first group of n element of tech indicator is a `boolean` type to show whether the stock can sell?\n\n[TODO] need to check the first column of tech indicator",
+      "line": 106
+    },
+    {
+      "file": "../../opt/anaconda3/envs/FinRL/lib/python3.10/site-packages/finrl/meta/env_stock_trading/env_stocktrading.py",
+      "description": "sell_amount = close_price * sell_num_shares * (1 - cost?)",
+      "line": 118
+    },
+    {
+      "file": "../../opt/anaconda3/envs/FinRL/lib/python3.10/site-packages/finrl/meta/env_stock_trading/env_stocktrading.py",
+      "description": "cost = close_price * sell_num_shares * cost",
+      "line": 125
+    },
+    {
+      "file": "../../opt/anaconda3/envs/FinRL/lib/python3.10/site-packages/finrl/meta/env_stock_trading/env_stocktrading.py",
+      "description": "_sell_stock get self.state updated and get back shares sold",
+      "line": 323
+    },
+    {
+      "file": "../../opt/anaconda3/envs/FinRL/lib/python3.10/site-packages/finrl/meta/env_stock_trading/env_stocktrading.py",
+      "description": "step() update the data dataframe to next day.\n\nself.df -> input dataframe\n\nself.day -> pointer increase from 0 matching self.df index\n\nself.data -> each day subset of self.df ",
+      "line": 335
+    },
+    {
+      "file": "../../opt/anaconda3/envs/FinRL/lib/python3.10/site-packages/finrl/meta/env_stock_trading/env_stocktrading.py",
+      "description": "Compose next state vector.",
+      "line": 341
+    },
+    {
+      "file": "../../opt/anaconda3/envs/FinRL/lib/python3.10/site-packages/finrl/meta/env_stock_trading/env_stocktrading.py",
+      "description": "Four memories\n1. self.asset_memory\n2. self.date_memory\n3. self.rewards_memory\n4. self.state_memory",
+      "line": 355
+    },
+    {
+      "file": "../../opt/anaconda3/envs/FinRL/lib/python3.10/site-packages/finrl/meta/env_stock_trading/env_stocktrading.py",
+      "description": "initial - controls whether to use initial_amount as start or use previous_state",
+      "line": 70
+    },
+    {
+      "file": "../../opt/anaconda3/envs/FinRL/lib/python3.10/site-packages/finrl/meta/env_stock_trading/env_stocktrading.py",
+      "description": "To construct the state vector. There are four conditions self.initial, and self.df.tic.unique() > 1",
+      "line": 403
+    },
+    {
+      "file": "../../opt/anaconda3/envs/FinRL/lib/python3.10/site-packages/finrl/meta/env_stock_trading/env_stocktrading.py",
+      "description": "the index of the dataframe is organized as 0, 1, 2, ....\neach day records the observation of all stocks",
+      "line": 64
+    }
+  ],
+  "ref": "work_branch"
+}
