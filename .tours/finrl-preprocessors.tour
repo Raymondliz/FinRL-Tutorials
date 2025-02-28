@@ -1,0 +1,22 @@
+{
+  "$schema": "https://aka.ms/codetour-schema",
+  "title": "FinRL Preprocessors",
+  "steps": [
+    {
+      "file": "../FinRL/finrl/meta/preprocessor/preprocessors.py",
+      "description": "I believe this make no sense at all.  \nWhat is the oldest ticker? What if for example .min() returns 1 but this one Nan stays at the bottom of the DataFrame.",
+      "line": 307
+    },
+    {
+      "file": "../FinRL/finrl/meta/preprocessor/preprocessors.py",
+      "description": "Each row is an observation.",
+      "line": 309
+    },
+    {
+      "file": "../FinRL/finrl/meta/preprocessor/preprocessors.py",
+      "description": "Why don't convert data to Timestamp first? so we can use `.between_time()'.",
+      "line": 287
+    }
+  ],
+  "ref": "work_branch"
+}
